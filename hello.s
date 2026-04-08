@@ -3,18 +3,24 @@
  * All rights reserved.
  *
  * Description: entry point of the bootloader
+ *
+ *
+ * Stack pointer register - sp
+ * li instruction loads instruction
+ * li is considered an integer computation because it loads an integer in my stack pointer
+ * call main is considered a control transfer instruction, we transfer control to hello.c::main
+ *
+ *
  */
     .section .text.enter
     .global _start
 
 
 
-// Stack pointer register - sp
-// li instruction loads instruction
-// li is considered an integer computation because it loads an integer in my stack pointer
+
 
 _start:
     li sp, 0x80400000
-    call main // this is considered a control transfer instruction, we transfer control to hello.c::main
+    call main 
 _end:
     call _end
